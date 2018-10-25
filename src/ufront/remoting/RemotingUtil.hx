@@ -51,7 +51,7 @@ class RemotingUtil {
 						hxrFound = true;
 					case "hxt":
 						var s = new RemotingUnserializer(line.substr(3));
-						var m:Message = cast
+						var m:Message = 
 							try s.unserialize()
 							catch(e:Dynamic) errors.push( RUnserializeFailed(remotingCallString, line.substr(3), '$e') )
 						;
@@ -73,7 +73,7 @@ class RemotingUtil {
 						#end
 					case "hxs":
 						var s = new RemotingUnserializer(line.substr(3));
-						stack = cast 
+						stack =  
 							try s.unserialize()
 							catch(e:Dynamic) errors.push( RUnserializeFailed(remotingCallString, line.substr(3), '$e') )
 						;
