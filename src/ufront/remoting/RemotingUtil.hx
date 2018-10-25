@@ -44,14 +44,15 @@ class RemotingUtil {
 				switch (line.substr(0,3)) {
 					case "hxr":
 						var s = new RemotingUnserializer(line.substr(3));
-						ret =
+						ret = cast 
 							try s.unserialize()
 							catch(e:Dynamic) errors.push( RUnserializeFailed(remotingCallString, line.substr(3), '$e') )
 						;
 						hxrFound = true;
 					case "hxt":
 						var s = new RemotingUnserializer(line.substr(3));
-						var m:Message = 
+						
+						var m:Message = cast 
 							try s.unserialize()
 							catch(e:Dynamic) errors.push( RUnserializeFailed(remotingCallString, line.substr(3), '$e') )
 						;
@@ -73,13 +74,13 @@ class RemotingUtil {
 						#end
 					case "hxs":
 						var s = new RemotingUnserializer(line.substr(3));
-						stack =  
+						stack =  cast
 							try s.unserialize()
 							catch(e:Dynamic) errors.push( RUnserializeFailed(remotingCallString, line.substr(3), '$e') )
 						;
 					case "hxe":
 						var s = new RemotingUnserializer(line.substr(3));
-						ret =
+						ret = cast 
 							try s.unserialize()
 							catch(e:Dynamic) errors.push( RServerSideException(remotingCallString, e, stack) )
 						;

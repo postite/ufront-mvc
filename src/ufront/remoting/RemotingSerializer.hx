@@ -23,13 +23,13 @@ class RemotingSerializer extends haxe.Serializer {
 	**/
 	public var direction:RemotingDirection;
 
-	public function new( dir:RemotingDirection ) {
+	public function new( ?dir:RemotingDirection ) {
 		super();
 		this.direction = dir;
 		this.uploads = new MultiValueMap();
 	}
 
-	public static function run( obj:Dynamic, direction:RemotingDirection ) {
+	public static function run( ?obj:Dynamic, ?direction:RemotingDirection ) {
 		var s = new RemotingSerializer( direction );
 		s.serialize( obj );
 		return s.toString();
