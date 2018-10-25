@@ -29,7 +29,7 @@ class RemotingSerializer extends haxe.Serializer {
 		this.uploads = new MultiValueMap();
 	}
 
-	public static function run( obj:Dynamic, direction:RemotingDirection ):String {
+	public static function run( obj:Dynamic, direction:RemotingDirection ) {
 		var s = new RemotingSerializer( direction );
 		s.serialize( obj );
 		return s.toString();
